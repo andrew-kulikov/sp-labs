@@ -62,6 +62,18 @@ class List:
             tmp = tmp.next
             self.remove(0)
 
+    def get_nth(self, n):
+        tmp = self.begin
+        i = 0
+        while i != n and tmp:
+
+            i += 1
+            tmp = tmp.prev
+
+        if not tmp:
+            return None
+        return tmp.data
+
     def print(self):
         tmp = self.end
         while tmp:
@@ -78,8 +90,13 @@ def main():
     lst.remove(0)
     lst.push_back('22')
     lst.remove(4)
-    lst.clear()
     lst.print()
+
+    el = lst.get_nth(6)
+    if el:
+        print(el)
+    else:
+        print("No such element")
 
 
 if __name__ == '__main__':
